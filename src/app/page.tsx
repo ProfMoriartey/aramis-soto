@@ -127,37 +127,32 @@ export default function HomePage() {
             </h1>
             <p className="mt-2 text-neutral-300">{hero.tagline}</p>
             <p className="mt-3 max-w-2xl text-neutral-400">{hero.blurb}</p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {hero.ctas.map((c) => (
-                <Button
-                  asChild
-                  key={c.label}
-                  className="rounded-2xl bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
-                >
-                  <Link href={c.href}>{c.label}</Link>
-                </Button>
-              ))}
+            <div className="mt-4 flex gap-3 text-neutral-400">
+              <Badge
+                variant="secondary"
+                className="bg-neutral-800 text-neutral-200"
+              >
+                Traveler
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-neutral-800 text-neutral-200"
+              >
+                Tutor
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-neutral-800 text-neutral-200"
+              >
+                Musician
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-neutral-800 text-neutral-200"
+              >
+                Funcky
+              </Badge>
             </div>
-          </div>
-          <div className="flex gap-3 text-neutral-400">
-            <Badge
-              variant="secondary"
-              className="bg-neutral-800 text-neutral-200"
-            >
-              Traveler
-            </Badge>
-            <Badge
-              variant="secondary"
-              className="bg-neutral-800 text-neutral-200"
-            >
-              Tutor
-            </Badge>
-            <Badge
-              variant="secondary"
-              className="bg-neutral-800 text-neutral-200"
-            >
-              Musician
-            </Badge>
           </div>
         </motion.div>
       </section>
