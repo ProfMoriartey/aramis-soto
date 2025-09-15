@@ -82,14 +82,14 @@ export default function FavoritesPage() {
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="h-2 w-32 rounded bg-neutral-800">
+                  {/* <div className="h-2 w-32 rounded bg-neutral-800">
                     <div
                       className="h-2 rounded bg-neutral-200"
                       style={{
                         width: `${Math.max(0, Math.min(10, item.rating)) * 10}%`,
                       }}
                     />
-                  </div>
+                  </div> */}
                   <span className="w-10 text-right text-neutral-300">
                     {item.rating}/10
                   </span>
