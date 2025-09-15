@@ -103,7 +103,7 @@ export default function MapChart() {
   }
 
   return (
-    <div className="rounded-2xl bg-neutral-600 p-4 ring-1 ring-neutral-800 select-none">
+    <div className="rounded-2xl bg-neutral-900 p-4 ring-1 ring-neutral-700 select-none">
       <TooltipProvider delayDuration={80}>
         <ComposableMap projection="geoEqualEarth" width={980} height={520}>
           <ZoomableGroup>

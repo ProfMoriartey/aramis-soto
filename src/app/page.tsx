@@ -19,14 +19,8 @@ import {
   ExternalLink,
   Play,
 } from "lucide-react";
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts";
+
+import { catalog } from "~/data";
 
 // ---------------------------------------------
 // Editable content (quick knobs)
@@ -131,7 +125,7 @@ export default function HomePage() {
                 <Button
                   asChild
                   key={c.label}
-                  className="rounded-2xl bg-neutral-800 hover:bg-neutral-700"
+                  className="rounded-2xl bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
                 >
                   <Link href={c.href}>{c.label}</Link>
                 </Button>
@@ -177,37 +171,37 @@ export default function HomePage() {
               </p>
             </CardHeader>
             <CardContent>
-              <div className="h-56 w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={favorites.items}
-                    margin={{ top: 8, right: 8, left: 0, bottom: 8 }}
-                  >
-                    <XAxis
-                      dataKey="title"
-                      stroke="#9ca3af"
-                      tickLine={false}
-                      axisLine={{ stroke: "#262626" }}
-                    />
-                    <YAxis
-                      domain={[0, 10]}
-                      stroke="#9ca3af"
-                      tickLine={false}
-                      axisLine={{ stroke: "#262626" }}
-                    />
-                    <Tooltip
-                      cursor={{ fill: "#0a0a0a" }}
-                      contentStyle={{
-                        background: "#111",
-                        border: "1px solid #262626",
-                        borderRadius: 8,
-                        color: "#e5e7eb",
-                      }}
-                    />
-                    <Bar dataKey="rating" radius={[6, 6, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+              {/* Top Movies */}
+              <div className="mb-4">
+                <h3 className="mb-2 text-sm font-semibold text-neutral-200">
+                  Top Movies
+                </h3>
+                <ul className="space-y-1 text-sm text-neutral-300">
+                  {catalog.movies.slice(0, 3).map((item) => (
+                    <li key={item.title} className="flex justify-between">
+                      <span>{item.title}</span>
+                      <span className="text-neutral-400">{item.rating}/10</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+
+              {/* Top Anime */}
+              <div className="mb-4">
+                <h3 className="mb-2 text-sm font-semibold text-neutral-200">
+                  Top Anime
+                </h3>
+                <ul className="space-y-1 text-sm text-neutral-300">
+                  {catalog.anime.slice(0, 3).map((item) => (
+                    <li key={item.title} className="flex justify-between">
+                      <span>{item.title}</span>
+                      <span className="text-neutral-400">{item.rating}/10</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Link to full list */}
               <div className="mt-3">
                 <Button
                   asChild
@@ -256,7 +250,7 @@ export default function HomePage() {
                 <Button
                   asChild
                   size="sm"
-                  className="rounded-xl bg-neutral-800 hover:bg-neutral-700"
+                  className="rounded-xl bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
                 >
                   <Link
                     href={work.href}
