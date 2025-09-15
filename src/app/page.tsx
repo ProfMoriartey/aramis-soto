@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
 import { Separator } from "~/components/ui/separator";
 import {
+  LifeBuoy,
   Music,
   MapPin,
   Tv,
@@ -92,6 +93,12 @@ const hobbies = {
       label: "Music / Jazz Band",
       blurb: "Plays with a small jazz group; rhythm section & improvisation.",
       href: "/hobbies/music",
+    },
+    {
+      icon: <LifeBuoy className="h-4 w-4" />,
+      label: "Funkyness",
+      blurb: "All is the funck, and the funck is all",
+      href: "/Funcky",
     },
   ],
 };
@@ -221,44 +228,29 @@ export default function HomePage() {
           </Card>
         </motion.div>
 
-        {/* Work */}
+        {/* Hobbies */}
         <motion.div {...fadeUp}>
-          <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
+          <Card className="h-full rounded-2xl border-neutral-800 bg-neutral-900">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <BookOpenText className="h-5 w-5" /> {work.title}
+                <Play className="h-5 w-5" /> {hobbies.title}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="grid list-disc gap-2 pl-5 text-neutral-300">
-                {work.points.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {work.badges.map((b) => (
-                  <Badge
-                    key={b}
-                    variant="secondary"
-                    className="bg-neutral-800 text-neutral-200"
-                  >
-                    {b}
-                  </Badge>
-                ))}
-              </div>
-              <div className="mt-4">
-                <Button
-                  asChild
-                  size="sm"
-                  className="rounded-xl bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
-                >
+              <div className="grid gap-3">
+                {hobbies.items.map((h) => (
                   <Link
-                    href={work.href}
-                    className="inline-flex items-center gap-1"
+                    key={h.label}
+                    href={h.href}
+                    className="group rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:bg-neutral-800"
                   >
-                    View details <ExternalLink className="h-4 w-4" />
+                    <div className="flex items-center gap-2 text-neutral-200">
+                      {h.icon}
+                      <span className="font-medium">{h.label}</span>
+                    </div>
+                    <p className="mt-1 text-sm text-neutral-400">{h.blurb}</p>
                   </Link>
-                </Button>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -311,30 +303,45 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Hobbies */}
+      {/* Work */}
       <section className="mt-8">
         <motion.div {...fadeUp}>
           <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Play className="h-5 w-5" /> {hobbies.title}
+                <BookOpenText className="h-5 w-5" /> {work.title}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {hobbies.items.map((h) => (
-                  <Link
-                    key={h.label}
-                    href={h.href}
-                    className="group rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:bg-neutral-800"
-                  >
-                    <div className="flex items-center gap-2 text-neutral-200">
-                      {h.icon}
-                      <span className="font-medium">{h.label}</span>
-                    </div>
-                    <p className="mt-1 text-sm text-neutral-400">{h.blurb}</p>
-                  </Link>
+              <ul className="grid list-disc gap-2 pl-5 text-neutral-300">
+                {work.points.map((p) => (
+                  <li key={p}>{p}</li>
                 ))}
+              </ul>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {work.badges.map((b) => (
+                  <Badge
+                    key={b}
+                    variant="secondary"
+                    className="bg-neutral-800 text-neutral-200"
+                  >
+                    {b}
+                  </Badge>
+                ))}
+              </div>
+              <div className="mt-4">
+                <Button
+                  asChild
+                  size="sm"
+                  className="rounded-xl bg-neutral-800 text-neutral-200 hover:bg-neutral-700"
+                >
+                  <Link
+                    href={work.href}
+                    className="inline-flex items-center gap-1"
+                  >
+                    View details <ExternalLink className="h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>
