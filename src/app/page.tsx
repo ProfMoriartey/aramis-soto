@@ -65,9 +65,9 @@ const work = {
 };
 
 const adventures = {
-  title: "Adventures (2021–2024)",
+  title: "Adventures",
   blurb:
-    "Three years across Asia and Europe. Click through to explore photos, notes, and country pages.",
+    "Traveling across Asia and Europe. Click through to explore photos, notes, and country pages.",
   stops: [
     { code: "TR", name: "Türkiye" },
     { code: "MX", name: "Mexico" },

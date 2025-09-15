@@ -1,5 +1,12 @@
 import { notFound } from "next/navigation";
 import ClientCountryShape from "./ClientCountryShape";
+import {
+  countryEntries,
+  notVisitedTemplate,
+  type CountryEntry,
+  countryPhotos,
+  type CountryPhoto,
+} from "~/data";
 
 type Country = {
   name: { common?: string };
@@ -28,7 +35,7 @@ async function fetchCountry(code: string): Promise<Country | null> {
   };
 }
 
-// NOTE: params is a Promise now
+// Next 15: params is a Promise
 export default async function CountryPage({
   params,
 }: {
@@ -43,6 +50,14 @@ export default async function CountryPage({
 
   const name = country.name.common ?? code;
   const flag = country.flags?.svg ?? country.flags?.png ?? "";
+
+  // Trip details
+  const entry: CountryEntry | undefined = countryEntries[code];
+  const details: CountryEntry = entry ?? notVisitedTemplate;
+  const visited = Boolean(entry);
+
+  // Photos (optional)
+  const photos: CountryPhoto[] = countryPhotos[code] ?? [];
 
   return (
     <main className="mx-auto max-w-5xl p-6">
@@ -69,6 +84,7 @@ export default async function CountryPage({
             <h1 className="text-2xl font-semibold text-neutral-100">{name}</h1>
           </header>
 
+          {/* Basic info */}
           <dl className="mt-6 grid gap-3 text-neutral-300">
             <div>
               <dt className="text-neutral-500">Code</dt>
@@ -87,14 +103,71 @@ export default async function CountryPage({
               </div>
             )}
           </dl>
+
+          {/* Trip details */}
+          <section className="mt-6">
+            <h2 className="mb-2 text-lg font-medium text-neutral-100">
+              {visited ? "Trip details" : "Planning"}
+            </h2>
+            <div className="grid gap-2 text-neutral-300">
+              <div>
+                <span className="text-neutral-500">Stay duration:</span>{" "}
+                {details.stayDuration ?? "—"}
+              </div>
+              <div>
+                <span className="text-neutral-500">Stay date:</span>{" "}
+                {details.stayDate ?? "—"}
+              </div>
+              <div>
+                <span className="text-neutral-500">Overall experience:</span>{" "}
+                {typeof details.overallExperience === "number"
+                  ? `${details.overallExperience}/10`
+                  : "—"}
+              </div>
+              {details.notes && (
+                <div className="text-neutral-400">{details.notes}</div>
+              )}
+            </div>
+          </section>
         </section>
 
-        {/* RIGHT: outline — fills its column, no bg/border */}
+        {/* RIGHT: outline */}
         <section className="w-full md:justify-self-end">
-          {/* The component fits itself to its container */}
           <ClientCountryShape code={code} />
         </section>
       </div>
+
+      {/* GALLERY (below all sections) */}
+      <section className="mt-10">
+        <h2 className="mb-3 text-lg font-medium text-neutral-100">
+          To Remember
+        </h2>
+
+        {photos.length > 0 ? (
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {photos.map((p, i) => (
+              <li key={`${p.url}-${i}`} className="group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.url}
+                  alt={p.alt ?? `${name} photo ${i + 1}`}
+                  className="aspect-[4/3] w-full rounded-xl object-cover ring-1 ring-neutral-800 group-hover:opacity-95"
+                  loading="lazy"
+                />
+                {(p.caption ?? p.alt) && (
+                  <p className="mt-2 text-sm text-neutral-400">
+                    {p.caption ?? p.alt}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-neutral-400">
+            No photos yet for {name}. Add some in your data file when ready.
+          </div>
+        )}
+      </section>
     </main>
   );
 }
