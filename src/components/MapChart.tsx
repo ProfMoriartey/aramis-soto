@@ -9,12 +9,17 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { iso31661NumericToAlpha2 as rawMap } from "iso-3166";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
 
 const geoUrl = "/world-110m.json";
-
 const isoMap: Record<string | number, string> = rawMap;
 
-// ---------- safe helpers ----------
+// ---------- helpers ----------
 type RawGeo = unknown;
 
 function getGeoId(value: RawGeo): string | null {
@@ -41,17 +46,21 @@ function getGeoName(value: RawGeo): string | null {
 function numericToAlpha2(numeric: string): string | null {
   const byNum = isoMap[Number(numeric)];
   if (typeof byNum === "string") return byNum.toUpperCase();
-
   const byStr = isoMap[numeric];
   return typeof byStr === "string" ? byStr.toUpperCase() : null;
 }
-// -----------------------------------
+// --------------------------------
 
 export default function MapChart() {
   const router = useRouter();
   const [hover, setHover] = useState<string | null>(null);
 
-  // Typed render function avoids inline assertions
+  const basePath =
+    "outline-none fill-neutral-800 stroke-neutral-700 " +
+    "[stroke-width:0.5] transition-colors duration-150 " +
+    "hover:fill-neutral-700 active:fill-neutral-600 " +
+    "focus-visible:stroke-neutral-200 focus-visible:[stroke-width:1]";
+
   function renderGeos(args: { geographies: ReadonlyArray<RawGeo> }) {
     const { geographies } = args;
 
@@ -66,43 +75,42 @@ export default function MapChart() {
       const isHover = hover === code2;
 
       return (
-        <Geography
-          key={`${code2}-${idx}`}
-          // react-simple-maps types this prop as `any`.
-          // We pass the raw object through intentionally.
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          geography={geo}
-          aria-label={name}
-          tabIndex={0}
-          onMouseEnter={() => setHover(code2)}
-          onMouseLeave={() => setHover(null)}
-          onClick={() => router.push(`/country/${code2}`)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") router.push(`/country/${code2}`);
-          }}
-          style={{
-            default: {
-              outline: "none",
-              fill: isHover ? "#404040" : "#171717",
-              stroke: "#262626",
-              strokeWidth: 0.5,
-              transition: "fill 120ms ease",
-            },
-            hover: { outline: "none", fill: "#404040" },
-            pressed: { outline: "none", fill: "#525252" },
-          }}
-        />
+        <Tooltip key={`${code2}-${idx}`}>
+          <TooltipTrigger asChild>
+            <Geography
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              geography={geo}
+              aria-label={name}
+              tabIndex={0}
+              onMouseEnter={() => setHover(code2)}
+              onMouseLeave={() => setHover(null)}
+              onClick={() => router.push(`/country/${code2}`)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") router.push(`/country/${code2}`);
+              }}
+              className={`${basePath} ${isHover ? "fill-neutral-700" : ""}`}
+            />
+          </TooltipTrigger>
+          <TooltipContent
+            side="top"
+            className="border-neutral-800 bg-neutral-900 text-neutral-100"
+          >
+            {name} ({code2})
+          </TooltipContent>
+        </Tooltip>
       );
     });
   }
 
   return (
-    <div className="rounded-2xl bg-neutral-900 p-4 ring-1 ring-neutral-800 select-none">
-      <ComposableMap projection="geoEqualEarth" width={980} height={520}>
-        <ZoomableGroup>
-          <Geographies geography={geoUrl}>{renderGeos}</Geographies>
-        </ZoomableGroup>
-      </ComposableMap>
+    <div className="rounded-2xl bg-neutral-600 p-4 ring-1 ring-neutral-800 select-none">
+      <TooltipProvider delayDuration={80}>
+        <ComposableMap projection="geoEqualEarth" width={980} height={520}>
+          <ZoomableGroup>
+            <Geographies geography={geoUrl}>{renderGeos}</Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
+      </TooltipProvider>
 
       <div className="mt-3 h-5 text-sm text-neutral-400">
         {hover ? `Selected: ${hover}` : "Hover a country"}
