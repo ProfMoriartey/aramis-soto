@@ -80,19 +80,19 @@ const adventures = {
 };
 
 const hobbies = {
-  title: "Hobbies",
+  title: "Interests",
   items: [
     {
       icon: <Sparkles className="h-4 w-4" />,
       label: "Parkour",
       blurb: "Precision, flow, and safe movement in urban spaces.",
-      href: "/hobbies/parkour",
+      href: "/parkour",
     },
     {
       icon: <Music className="h-4 w-4" />,
-      label: "Music / Jazz Band",
+      label: "Music",
       blurb: "Plays with a small jazz group; rhythm section & improvisation.",
-      href: "/hobbies/music",
+      href: "/music",
     },
     {
       icon: <LifeBuoy className="h-4 w-4" />,
@@ -102,6 +102,9 @@ const hobbies = {
     },
   ],
 };
+
+const musicItem = hobbies.items.find((h) => /music/i.test(h.label));
+const otherHobbies = hobbies.items.filter((h) => h !== musicItem);
 
 // ---------------------------------------------
 // Small helpers
@@ -159,11 +162,11 @@ export default function HomePage() {
 
       <Separator className="my-6 bg-neutral-800" />
 
-      {/* GRID: Favorites / Work */}
+      {/* GRID: Favorites / Hobbies */}
       <section className="grid gap-6 md:grid-cols-2">
         {/* Favorites with chart */}
         <motion.div {...fadeUp}>
-          <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
+          <Card className="h-full rounded-2xl border-neutral-800 bg-neutral-900">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-lg">
                 <Tv className="h-5 w-5" /> {favorites.title}
@@ -223,33 +226,68 @@ export default function HomePage() {
           </Card>
         </motion.div>
 
-        {/* Hobbies */}
-        <motion.div {...fadeUp}>
-          <Card className="h-full rounded-2xl border-neutral-800 bg-neutral-900">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Play className="h-5 w-5" /> {hobbies.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-3">
-                {hobbies.items.map((h) => (
+        {/* Hobbies — split into Music + Other */}
+        <div className="flex flex-col gap-6">
+          {/* Music card */}
+          {musicItem && (
+            <motion.div {...fadeUp}>
+              <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <Music className="h-5 w-5" /> The meaning of life:{" "}
+                    {musicItem.label}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
                   <Link
-                    key={h.label}
-                    href={h.href}
-                    className="group rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:bg-neutral-800"
+                    href={musicItem.href}
+                    className="group block rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:bg-neutral-800"
                   >
                     <div className="flex items-center gap-2 text-neutral-200">
-                      {h.icon}
-                      <span className="font-medium">{h.label}</span>
+                      {musicItem.icon}
+                      <span className="font-medium">{musicItem.label}</span>
                     </div>
-                    <p className="mt-1 text-sm text-neutral-400">{h.blurb}</p>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      {musicItem.blurb}
+                    </p>
                   </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
+
+          {/* Other hobbies card */}
+          {otherHobbies.length > 0 && (
+            <motion.div {...fadeUp}>
+              <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <Play className="h-5 w-5" /> Other ways to spend time
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid gap-3">
+                    {otherHobbies.map((h) => (
+                      <Link
+                        key={h.label}
+                        href={h.href}
+                        className="group rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:bg-neutral-800"
+                      >
+                        <div className="flex items-center gap-2 text-neutral-200">
+                          {h.icon}
+                          <span className="font-medium">{h.label}</span>
+                        </div>
+                        <p className="mt-1 text-sm text-neutral-400">
+                          {h.blurb}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
+        </div>
       </section>
 
       {/* Adventures */}
