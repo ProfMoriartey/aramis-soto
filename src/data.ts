@@ -131,3 +131,104 @@ export const countryPhotos: Record<string, CountryPhoto[]> = {
   ],
   // Countries without photos can be omitted; page will handle it gracefully.
 };
+
+export type Photo = { url: string; alt?: string; caption?: string };
+
+export type InstrumentKey = "guitar" | "piano" | "bass" | "sax" | "drums";
+
+export type Instrument = {
+  key: InstrumentKey;
+  title: string;
+  cover: Photo;          // main instrument image
+  description: string;   // short text about the instrument
+  gallery: Photo[];      // photos of Aramis playing
+};
+
+export const instruments: Record<InstrumentKey, Instrument> = {
+  guitar: {
+    key: "guitar",
+    title: "Guitar",
+    cover: {
+      url: "/music/instruments/guitar.jpg",
+      alt: "Electric guitar on a stand",
+    },
+    description:
+      "Rhythm and melodic lines. Focus on tight timing, voicings, and comping for small jazz setups.",
+    gallery: [
+      {
+        url: "/guitar-session-1.jpg",
+        alt: "Aramis playing guitar in rehearsal",
+        caption: "Rehearsal take—comping behind a sax solo.",
+      },
+      {
+        url: "/music/aramis/guitar-session-2.jpg",
+        alt: "Aramis guitar close-up",
+        caption: "Chord melody study with a clean tone.",
+      },
+    ],
+  },
+  piano: {
+    key: "piano",
+    title: "Piano",
+    cover: { url: "/music/instruments/piano.jpg", alt: "Upright piano" },
+    description:
+      "Harmony lab. Writing voicings, reharmonizing standards, and sketching ideas.",
+    gallery: [
+      {
+        url: "/music/aramis/piano-1.jpg",
+        alt: "Aramis at the piano",
+        caption: "Voicing drill—shells and tensions.",
+      },
+    ],
+  },
+  bass: {
+    key: "bass",
+    title: "Bass",
+    cover: { url: "/music/instruments/bass.jpg", alt: "Electric bass" },
+    description:
+      "Groove anchor. Locking with drums, walking lines, and clean articulation.",
+    gallery: [
+      {
+        url: "/music/aramis/bass-1.jpg",
+        alt: "Aramis on bass with the band",
+        caption: "Walking line over rhythm changes.",
+      },
+    ],
+  },
+  sax: {
+    key: "sax",
+    title: "Saxophone",
+    cover: { url: "/music/instruments/sax.jpg", alt: "Alto sax on table" },
+    description:
+      "Tone work and phrasing. Long tones, transcriptions, and motif development.",
+    gallery: [
+      {
+        url: "/music/aramis/sax-1.jpg",
+        alt: "Aramis playing sax",
+        caption: "Ballad practice—breath control focus.",
+      },
+    ],
+  },
+  drums: {
+    key: "drums",
+    title: "Drums",
+    cover: { url: "/music/instruments/drums.jpg", alt: "Drum kit" },
+    description:
+      "Timekeeping and dynamics. Brush work, ride patterns, and trading fours.",
+    gallery: [
+      {
+        url: "/music/aramis/drums-1.jpg",
+        alt: "Aramis on drums",
+        caption: "Brushes on a medium swing.",
+      },
+    ],
+  },
+};
+
+export const instrumentLabels: Record<InstrumentKey, string> = {
+  guitar: "Guitar",
+  piano: "Piano",
+  bass: "Bass",
+  sax: "Saxophone",
+  drums: "Drums",
+};

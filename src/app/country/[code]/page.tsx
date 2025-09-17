@@ -7,6 +7,7 @@ import {
   countryPhotos,
   type CountryPhoto,
 } from "~/data";
+import ClientGallery from "./ClientGallery";
 
 type Country = {
   name: { common?: string };
@@ -142,31 +143,7 @@ export default async function CountryPage({
         <h2 className="mb-3 text-lg font-medium text-neutral-100">
           To Remember
         </h2>
-
-        {photos.length > 0 ? (
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {photos.map((p, i) => (
-              <li key={`${p.url}-${i}`} className="group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={p.url}
-                  alt={p.alt ?? `${name} photo ${i + 1}`}
-                  className="aspect-[4/3] w-full rounded-xl object-cover ring-1 ring-neutral-800 group-hover:opacity-95"
-                  loading="lazy"
-                />
-                {(p.caption ?? p.alt) && (
-                  <p className="mt-2 text-sm text-neutral-400">
-                    {p.caption ?? p.alt}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-neutral-400">
-            No photos yet for {name}. Add some in your data file when ready.
-          </div>
-        )}
+        <ClientGallery name={name} photos={photos} />
       </section>
     </main>
   );

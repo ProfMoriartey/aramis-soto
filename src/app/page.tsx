@@ -84,9 +84,9 @@ const hobbies = {
   items: [
     {
       icon: <Sparkles className="h-4 w-4" />,
-      label: "Parkour",
+      label: "Awesomeness",
       blurb: "Precision, flow, and safe movement in urban spaces.",
-      href: "/parkour",
+      href: "/awesomeness",
     },
     {
       icon: <Music className="h-4 w-4" />,
@@ -153,7 +153,7 @@ export default function HomePage() {
                 variant="secondary"
                 className="bg-neutral-800 text-neutral-200"
               >
-                Funcky
+                Funck Master
               </Badge>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function HomePage() {
               <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center gap-2 text-lg">
-                    <Play className="h-5 w-5" /> Other ways to spend time
+                    <Play className="h-5 w-5" /> He&apos;s also assosiated with
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
