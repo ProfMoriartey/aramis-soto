@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { cubicBezier } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
@@ -12,8 +12,6 @@ import {
   Music,
   MapPin,
   Tv,
-  Gamepad2,
-  Film,
   Globe2,
   BookOpenText,
   Sparkles,
@@ -27,7 +25,8 @@ import { catalog } from "~/data";
 // Editable content (quick knobs)
 // ---------------------------------------------
 const hero = {
-  name: "Aramis Soto",
+  first: "Aramis",
+  last: "Soto",
   tagline: "Teacher. Traveler. Tinkerer.",
   blurb:
     "Aramis is an English & Spanish tutor who plays jazz with friends and vaults over park benches when nobody’s looking.",
@@ -84,9 +83,9 @@ const hobbies = {
   items: [
     {
       icon: <Sparkles className="h-4 w-4" />,
-      label: "Awesomeness",
+      label: "Parkour",
       blurb: "Precision, flow, and safe movement in urban spaces.",
-      href: "/awesomeness",
+      href: "/parkour",
     },
     {
       icon: <Music className="h-4 w-4" />,
@@ -96,9 +95,9 @@ const hobbies = {
     },
     {
       icon: <LifeBuoy className="h-4 w-4" />,
-      label: "Funkyness",
+      label: "Awesomeness",
       blurb: "All is the funck, and the funck is all",
-      href: "/Funcky",
+      href: "/awesomeness",
     },
   ],
 };
@@ -116,6 +115,21 @@ const fadeUp = {
 };
 
 export default function HomePage() {
+  const TARGET_A = 6;
+  const TARGET_S = 9;
+
+  const [aramisCount, setAramisCount] = useState(0);
+  const [sotoCount, setSotoCount] = useState(0);
+
+  const unlocked = aramisCount === TARGET_A && sotoCount === TARGET_S;
+  const showCounter = aramisCount > 0 || sotoCount > 0;
+
+  const incAramis = () => setAramisCount((c) => c + 1);
+  const incSoto = () => setSotoCount((c) => c + 1);
+  const resetCounts = () => {
+    setAramisCount(0);
+    setSotoCount(0);
+  };
   return (
     <main className="mx-auto max-w-6xl px-6 py-10 text-neutral-100">
       {/* HERO */}
@@ -125,12 +139,52 @@ export default function HomePage() {
           className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {hero.name}
+            <h1 className="flex items-center gap-2 text-3xl font-bold tracking-tight sm:text-4xl">
+              <span
+                className="cursor-pointer select-none hover:text-neutral-400"
+                onClick={incAramis}
+                aria-label="Tap Aramis"
+              >
+                {hero.first.split(" ")[0]}
+              </span>
+
+              <span
+                className="cursor-pointer select-none hover:text-neutral-400"
+                onClick={incSoto}
+                aria-label="Tap Soto"
+              >
+                {hero.last.split(" ")[0]}
+              </span>
+
+              {unlocked ? (
+                <Button
+                  asChild
+                  size="sm"
+                  className="ml-3 rounded-xl bg-neutral-800 text-neutral-100 hover:bg-neutral-600"
+                >
+                  <Link href="/areyousureyouarefunckyenough">
+                    Funckyness Awaits
+                  </Link>
+                </Button>
+              ) : (
+                showCounter && (
+                  <button
+                    type="button"
+                    onClick={resetCounts}
+                    title="Reset counter"
+                    className="ml-3 text-xs text-neutral-500 select-none hover:text-neutral-300"
+                  >
+                    {aramisCount}
+                    {sotoCount}
+                  </button>
+                )
+              )}
             </h1>
+
             <p className="mt-2 text-neutral-300">{hero.tagline}</p>
             <p className="mt-3 max-w-2xl text-neutral-400">{hero.blurb}</p>
-            <div className="mt-4 flex gap-3 text-neutral-400">
+
+            <div className="mt-3 flex gap-3 text-neutral-400">
               <Badge
                 variant="secondary"
                 className="bg-neutral-800 text-neutral-200"
@@ -148,12 +202,6 @@ export default function HomePage() {
                 className="bg-neutral-800 text-neutral-200"
               >
                 Musician
-              </Badge>
-              <Badge
-                variant="secondary"
-                className="bg-neutral-800 text-neutral-200"
-              >
-                Funck Master
               </Badge>
             </div>
           </div>

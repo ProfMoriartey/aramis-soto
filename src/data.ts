@@ -232,3 +232,12 @@ export const instrumentLabels: Record<InstrumentKey, string> = {
   sax: "Saxophone",
   drums: "Drums",
 };
+
+export type FunkyPhoto = { url: string; alt?: string; caption?: string };
+
+export const funkyPhotos: FunkyPhoto[] = [
+  { url: "/funky/friends-1.jpg", alt: "Jam night", caption: "Late-night groove check." },
+  { url: "/funky/friends-2.jpg", alt: "Street shot", caption: "Post-gig noodles." },
+  { url: "/funky/friends-3.jpg", alt: "Studio take", caption: "One more take. Always one more." },
+  // add more…
+];
