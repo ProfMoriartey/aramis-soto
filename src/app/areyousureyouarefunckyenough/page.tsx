@@ -14,15 +14,15 @@ import { Separator } from "~/components/ui/separator";
 
 // —— Edit these with your real questions/answers ——
 const QUESTIONS: string[] = [
-  "Q1) Finish this phrase: 'shit _____' ",
-  "Q2) You are waiting at the bus terminal, Your bus is late, you express your anger by saying:",
+  "Q1) With your own common sense, complete this phrase: 'shit _____' ",
+  "Q2) You are Mexican, you are waiting at the bus terminal, your bus is late, you express your anger by saying: ",
   "Q3) Are you having fun?",
 ];
 
 // Put correct answers here (same order). Case/punct/spacing doesn't matter.
 const ANSWERS: string[] = [
   "Happens",
-  "¿Donde esta el chingado autobus?",
+  "¿Donde esta el chingado camion?",
   "so much fun",
 ];
 
@@ -78,7 +78,7 @@ export default function FunckClearancePage() {
       <div className="mb-6 flex items-center justify-between">
         <h1 className="flex items-center gap-2 text-2xl font-semibold">
           <LockKeyhole className="h-6 w-6 text-purple-400" />
-          FunckTown Clearance
+          Funck Clearance
         </h1>
         <Button
           asChild
@@ -92,11 +92,10 @@ export default function FunckClearancePage() {
       <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-lg">
-            Level 7 Funck Security
+            Level 69 Funck Security
           </CardTitle>
           <p className="text-sm text-neutral-400">
-            Answer all three to move on. Case, punctuation, spaces, and accents
-            are ignored.
+            This is a funck test, your clearance level will be determined now.
           </p>
         </CardHeader>
 

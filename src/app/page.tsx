@@ -60,7 +60,7 @@ const work = {
     "Flexible schedule across time zones",
   ],
   badges: ["English", "Spanish", "Online"],
-  href: "/work",
+  href: "https://aramis-portfolio.vercel.app/",
 };
 
 const adventures = {
@@ -69,11 +69,11 @@ const adventures = {
     "Traveling across Asia and Europe. Click through to explore photos, notes, and country pages.",
   stops: [
     { code: "TR", name: "Türkiye" },
-    { code: "MX", name: "Mexico" },
-    { code: "ES", name: "Spain" },
-    { code: "DE", name: "Germany" },
-    { code: "IT", name: "Italy" },
-    { code: "JP", name: "Japan" },
+    { code: "GE", name: "Georgia" },
+    { code: "IN", name: "India" },
+    { code: "TH", name: "Thailand" },
+    { code: "RU", name: "Russia" },
+    { code: "KZ", name: "Kazakhstan" },
   ],
   href: "/map",
 };
@@ -163,7 +163,7 @@ export default function HomePage() {
                   className="ml-3 rounded-xl bg-neutral-800 text-neutral-100 hover:bg-neutral-600"
                 >
                   <Link href="/areyousureyouarefunckyenough">
-                    Funckyness Awaits
+                    Click for some guud funckyness
                   </Link>
                 </Button>
               ) : (
@@ -202,6 +202,12 @@ export default function HomePage() {
                 className="bg-neutral-800 text-neutral-200"
               >
                 Musician
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-neutral-800 text-neutral-200"
+              >
+                Funck Master
               </Badge>
             </div>
           </div>
@@ -418,6 +424,7 @@ export default function HomePage() {
                 >
                   <Link
                     href={work.href}
+                    target="_blank"
                     className="inline-flex items-center gap-1"
                   >
                     View details <ExternalLink className="h-4 w-4" />

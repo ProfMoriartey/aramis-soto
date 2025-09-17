@@ -50,12 +50,12 @@ export default function FunkyStuffPage() {
       <div className="mb-6 flex items-center justify-between gap-3">
         <h1 className="flex items-center gap-2 text-2xl font-semibold">
           <Images className="h-6 w-6 text-purple-400" />
-          Funky Stuff
+          Congrats! you are eligable to access the Funky Stuff
         </h1>
         <Button
           asChild
           size="sm"
-          className="rounded-xl bg-neutral-800 hover:bg-neutral-700"
+          className="rounded-xl bg-neutral-100 hover:bg-neutral-300"
         >
           <Link href="/">← Back</Link>
         </Button>
@@ -63,9 +63,12 @@ export default function FunkyStuffPage() {
 
       <Card className="rounded-2xl border-neutral-800 bg-neutral-900">
         <CardHeader className="pb-2">
-          <CardTitle className="text-lg">Gallery with Friends</CardTitle>
+          <CardTitle className="text-lg">
+            The things you will find here are of the atmost funck.
+          </CardTitle>
           <p className="text-sm text-neutral-400">
-            Click any photo to open the lightbox.
+            Be careful! If you gaze for long into the funck, the funck gazes
+            also into you.
           </p>
         </CardHeader>
 
@@ -121,10 +124,8 @@ export default function FunkyStuffPage() {
               <button
                 aria-label="Close"
                 onClick={close}
-                className="absolute top-2 right-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900/70 ring-1 ring-neutral-700 hover:bg-neutral-800"
-              >
-                <X className="h-5 w-5 text-neutral-200" />
-              </button>
+                className="absolute top-2 right-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900/70 ring-1 ring-neutral-700 hover:bg-neutral-800"
+              ></button>
 
               {canPrev && (
                 <button
@@ -152,7 +153,8 @@ export default function FunkyStuffPage() {
       <Separator className="my-8 bg-neutral-800" />
 
       <p className="text-sm text-neutral-400">
-        Photos load from <code>/public/funky/*</code>.
+        What you see here is highly classified funck, we appreciate your
+        descretion.
       </p>
     </main>
   );
