@@ -236,8 +236,8 @@ export const instrumentLabels: Record<InstrumentKey, string> = {
 export type FunkyPhoto = { url: string; alt?: string; caption?: string };
 
 export const funkyPhotos: FunkyPhoto[] = [
-  { url: "/funky/friends-1.jpg", alt: "Jam night", caption: "Late-night groove check." },
-  { url: "/funky/friends-2.jpg", alt: "Street shot", caption: "Post-gig noodles." },
-  { url: "/funky/friends-3.jpg", alt: "Studio take", caption: "One more take. Always one more." },
+  { url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hv", alt: "Jam night", caption: "Just feeling cute in the morning" },
+  { url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3Nr9lObGWMY7beRzp9AvONU5ZCHyarQwdu216", alt: "Street shot", caption: "Hanging out in Uludag forest as best bros" },
+  { url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3t5LczVJvac4DFIV27Bde9QzunpHrbs3hUYPN", alt: "Studio take", caption: "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)" },
   // add more…
 ];
