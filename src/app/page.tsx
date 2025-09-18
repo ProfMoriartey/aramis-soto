@@ -233,7 +233,7 @@ export default function HomePage() {
               {/* Top Movies */}
               <div className="mb-4">
                 <h3 className="mb-2 text-sm font-semibold text-neutral-200">
-                  Top Movies
+                  Top 3 Movies
                 </h3>
                 <ul className="space-y-1 text-sm text-neutral-300">
                   {catalog.movies.slice(0, 3).map((item) => (
@@ -248,10 +248,24 @@ export default function HomePage() {
               {/* Top Anime */}
               <div className="mb-4">
                 <h3 className="mb-2 text-sm font-semibold text-neutral-200">
-                  Top Anime
+                  Top 3 Anime
                 </h3>
                 <ul className="space-y-1 text-sm text-neutral-300">
                   {catalog.anime.slice(0, 3).map((item) => (
+                    <li key={item.title} className="flex justify-between">
+                      <span>{item.title}</span>
+                      <span className="text-neutral-400">{item.rating}/10</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Top Food */}
+              <div className="mb-4">
+                <h3 className="mb-2 text-sm font-semibold text-neutral-200">
+                  Top 3 Food
+                </h3>
+                <ul className="space-y-1 text-sm text-neutral-300">
+                  {catalog.food.slice(0, 3).map((item) => (
                     <li key={item.title} className="flex justify-between">
                       <span>{item.title}</span>
                       <span className="text-neutral-400">{item.rating}/10</span>

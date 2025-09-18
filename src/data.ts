@@ -2,7 +2,7 @@
 
 // ---------- Types ----------
 export type Item = { title: string; rating: number };
-export type CategoryKey = "movies" | "shows" | "anime" | "games" | "books";
+export type CategoryKey = "movies" | "shows" | "anime" | "food" | "games" | "books";
 
 export type Catalog = Record<CategoryKey, Item[]>;
 
@@ -12,6 +12,7 @@ export const categoryDescriptions: Record<CategoryKey, string> = {
   movies: "Films that stuck with me. Story, pacing, and rewatch value matter.",
   shows: "Series I’d recommend start to finish. Strong arcs, no filler.",
   anime: "Standouts across genres. Memorable characters and music.",
+  food: "Standouts across genres. Memorable characters and music.",
   games: "Tight gameplay and mood. Finished or near-finished titles only.",
   books: "Reads that shaped how I think, work, or create.",
 };
@@ -41,6 +42,18 @@ export const catalog: Catalog = {
     { title: "Severance", rating: 9 },
   ],
   anime: [
+    { title: "OPM", rating: 8 },
+    { title: "FMAB", rating: 10 },
+    { title: "Cowboy Bebop", rating: 9 },
+    { title: "JJK", rating: 8 },
+    { title: "Death Note", rating: 9 },
+    { title: "Demon Slayer", rating: 8 },
+    { title: "Haikyuu!!", rating: 8 },
+    { title: "Trigun", rating: 8 },
+    { title: "Mob 100", rating: 9 },
+    { title: "OP", rating: 8 },
+  ],
+   food: [
     { title: "OPM", rating: 8 },
     { title: "FMAB", rating: 10 },
     { title: "Cowboy Bebop", rating: 9 },
@@ -83,6 +96,7 @@ export const labels: Record<CategoryKey, string> = {
   movies: "Movies",
   shows: "TV Shows",
   anime: "Anime",
+  food: "Food",
   games: "Games",
   books: "Books",
 };
