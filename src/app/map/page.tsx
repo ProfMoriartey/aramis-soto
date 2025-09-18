@@ -17,7 +17,7 @@ export default function MapPage() {
   );
 }
 
-import ThemeToggle from "~/components/theme-toggle";
+// import ThemeToggle from "~/components/theme-toggle";
 import ClientMap from "./ClientMap";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";

@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
 import { Dialog, DialogContent } from "~/components/ui/dialog";
-import { MoveRight, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ---------------------------------------------
 // Content (edit freely)
@@ -205,7 +205,7 @@ export default function ParkourPage() {
                 alt={current.alt ?? "Parkour photo"}
                 className="max-h-[80vh] w-full rounded-2xl object-contain"
               />
-              {(current.caption || current.alt) && (
+              {(current.caption ?? current.alt) && (
                 <div className="px-4 py-3 text-sm text-neutral-300">
                   {current.caption ?? current.alt}
                 </div>

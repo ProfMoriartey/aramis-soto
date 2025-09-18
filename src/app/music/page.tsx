@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { Dialog, DialogContent } from "~/components/ui/dialog";
 import { instrumentLabels, instruments, type InstrumentKey } from "~/data";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function MusicPage() {
   const [tab, setTab] = useState<InstrumentKey>("guitar");

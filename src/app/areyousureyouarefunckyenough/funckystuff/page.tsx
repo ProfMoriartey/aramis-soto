@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
 import { Dialog, DialogContent } from "~/components/ui/dialog";
-import { ChevronLeft, ChevronRight, X, Images } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images } from "lucide-react";
 import { funkyPhotos } from "~/data";
 
 export default function FunkyStuffPage() {
