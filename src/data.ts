@@ -255,3 +255,27 @@ export const funkyPhotos: FunkyPhoto[] = [
   { url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3t5LczVJvac4DFIV27Bde9QzunpHrbs3hUYPN", alt: "Studio take", caption: "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)" },
   // add more…
 ];
+
+export type AwesomeItem = {
+  title: string;
+  description: string;
+  image: { url: string; alt?: string };
+  // Optional: force side for the image; otherwise alternates by index
+  side?: "left" | "right";
+};
+
+// Fill this array with your entries (order = display order).
+export const awesomeness: AwesomeItem[] = [
+  {
+    title: "Why he does X",
+    description: "lorem50https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hv",
+    image: { url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hv", alt: "Aramis doing X" },
+    side: "left", // or "right" (optional)
+  },
+  {
+    title: "Why he does w",
+    description: "lorem50https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hvhttps://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hv",
+    image: { url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3kvsUU7hBM8X02faJLycrPl96tqbSKuWID4hv", alt: "Aramis doing X" },
+    side: "right", // or "right" (optional)
+  },
+];
