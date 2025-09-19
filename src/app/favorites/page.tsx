@@ -77,19 +77,18 @@ export default function FavoritesPage() {
                   <span className="inline-grid h-6 w-6 place-items-center rounded-lg bg-neutral-800 text-xs text-neutral-300">
                     {idx + 1}
                   </span>
-                  <span className="font-medium text-neutral-100">
-                    {item.title}
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="font-medium text-neutral-100">
+                      {item.title}
+                    </span>
+                    {item.note && (
+                      <span className="text-sm text-neutral-400">
+                        {item.note}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  {/* <div className="h-2 w-32 rounded bg-neutral-800">
-                    <div
-                      className="h-2 rounded bg-neutral-200"
-                      style={{
-                        width: `${Math.max(0, Math.min(10, item.rating)) * 10}%`,
-                      }}
-                    />
-                  </div> */}
                   <span className="w-10 text-right text-neutral-300">
                     {item.rating}/10
                   </span>
