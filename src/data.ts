@@ -813,7 +813,7 @@ export const countryPhotos: Record<string, CountryPhoto[]> = {
 
 export type Photo = { url: string; alt?: string; caption?: string };
 
-export type InstrumentKey = "guitar" | "piano" | "bass" | "sax" | "drums";
+export type InstrumentKey = "guitar" | "piano" | "dombra" | "bazoon" | "drums";
 
 export type Instrument = {
   key: InstrumentKey;
@@ -837,7 +837,7 @@ export const instruments: Record<InstrumentKey, Instrument> = {
       {
         url: "/guitar-session-1.jpg",
         alt: "Aramis playing guitar in rehearsal",
-        caption: "Rehearsal take—comping behind a sax solo.",
+        caption: "Rehearsal take—comping behind a bazoon solo.",
       },
       {
         url: "/music/aramis/guitar-session-2.jpg",
@@ -849,41 +849,50 @@ export const instruments: Record<InstrumentKey, Instrument> = {
   piano: {
     key: "piano",
     title: "Piano",
-    cover: { url: "/music/instruments/piano.jpg", alt: "Upright piano" },
+    cover: {
+      url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3Fi6Ts8aUXinLRQA83HWGzxDZfgObytohp2IB",
+      alt: "Upright piano",
+    },
     description:
       "Harmony lab. Writing voicings, reharmonizing standards, and sketching ideas.",
     gallery: [
       {
-        url: "/music/aramis/piano-1.jpg",
+        url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3Fi6Ts8aUXinLRQA83HWGzxDZfgObytohp2IB",
         alt: "Aramis at the piano",
         caption: "Voicing drill—shells and tensions.",
       },
     ],
   },
-  bass: {
-    key: "bass",
-    title: "Bass",
-    cover: { url: "/music/instruments/bass.jpg", alt: "Electric bass" },
+  dombra: {
+    key: "dombra",
+    title: "Dombra",
+    cover: {
+      url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3t5LczVJvac4DFIV27Bde9QzunpHrbs3hUYPN",
+      alt: "Electric dombra",
+    },
     description:
       "Groove anchor. Locking with drums, walking lines, and clean articulation.",
     gallery: [
       {
-        url: "/music/aramis/bass-1.jpg",
-        alt: "Aramis on bass with the band",
+        url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3t5LczVJvac4DFIV27Bde9QzunpHrbs3hUYPN",
+        alt: "Aramis on dombra with the band",
         caption: "Walking line over rhythm changes.",
       },
     ],
   },
-  sax: {
-    key: "sax",
-    title: "Saxophone",
-    cover: { url: "/music/instruments/sax.jpg", alt: "Alto sax on table" },
+  bazoon: {
+    key: "bazoon",
+    title: "Bazoon",
+    cover: {
+      url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3uKnn6eC9T2BdK4IHYoMXs0DzvP3eLV1ECNx6",
+      alt: "Alto bazoon on table",
+    },
     description:
       "Tone work and phrasing. Long tones, transcriptions, and motif development.",
     gallery: [
       {
-        url: "/music/aramis/sax-1.jpg",
-        alt: "Aramis playing sax",
+        url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3uKnn6eC9T2BdK4IHYoMXs0DzvP3eLV1ECNx6",
+        alt: "Aramis playing bazoon",
         caption: "Ballad practice—breath control focus.",
       },
     ],
@@ -907,8 +916,8 @@ export const instruments: Record<InstrumentKey, Instrument> = {
 export const instrumentLabels: Record<InstrumentKey, string> = {
   guitar: "Guitar",
   piano: "Piano",
-  bass: "Bass",
-  sax: "Saxophone",
+  dombra: "Dombra",
+  bazoon: "Bazoon",
   drums: "Drums",
 };
 
@@ -918,54 +927,48 @@ export const funkyPhotos: FunkyPhoto[] = [
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3X7sqwCeT9ul3GraZ6FegdonvOWzwUsiDImJR",
     alt: "Jam night",
-    caption: "Just feeling cute in the morning",
+    caption:
+      "Long day of house riding horses and the consecuences that comes with it.",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3Nr9lObGWMY7beRzp9AvONU5ZCHyarQwdu216",
     alt: "Street shot",
-    caption: "Hanging out in Uludag forest as best bros",
+    caption: "Nothing scarier in a forest than a man and his bro",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3SyvZovrZHIJ6rK1AEF9c5jdwTunpNvy0l8Cf",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "Watching the sunrise with a sky full of ballons.",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3ypbGT3wPgKIdErqzBV2GAhHT8lOYjPxuMSkc",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "The evening that se the standards of what it means to be cool.",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3HssTY91M1EL5B4NViajzkGFmAoKebygU6dCX",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "Coolness as a way of life.",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3IcU3zBYK9zmEePfVRcdC2ybUSZ6isYFWAaL7",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "Nothing rings a group of people like a Taco",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3LMaIb9YBiU8M0pRYoQvfnu9IkVBxt3X6l1z7",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "Team Peach Pizza",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG39GqA0ZuDKWXljPx8VhARpvuGIZm2YyM5rz0b",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "The party is where the party people are.",
   },
   {
     url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3xPF7wZ9iXQu6CW0bOrM4LHdzBhwEPo7t93jI",
     alt: "Studio take",
-    caption:
-      "Enjoying and getting inspired by nature to play fine tunes on a fine piece of wood (Melodica)",
+    caption: "Epic adventures in the snowy mountains.",
   },
 ];
 

@@ -48,24 +48,19 @@ const sections = [
 
 const photos: PkPhoto[] = [
   {
-    url: "/parkour/precision.jpg",
-    alt: "Precision on a ledge",
-    caption: "Precision into a controlled stick.",
+    url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3K37Bz2qthe0UiCV4knWRMfrTLZqA25JpKoyG",
+    alt: "Human centipede",
+    caption: "Precision into a controlling all the limbs",
   },
   {
-    url: "/parkour/rail-balance.jpg",
+    url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3Nr9jN6sWMY7beRzp9AvONU5ZCHyarQwdu216",
     alt: "Rail balance",
-    caption: "Breathing slow. Eyes soft. Feet quiet.",
+    caption: "Breathing slow. Eyes soft. Feet in the air.",
   },
   {
-    url: "/parkour/wall-run.jpg",
+    url: "https://mr4v9rgsnq.ufs.sh/f/jf84pSwRMaG3N1IE1tWMY7beRzp9AvONU5ZCHyarQwdu2160",
     alt: "Wall run",
-    caption: "Approach, plant, drive knees—up, not in.",
-  },
-  {
-    url: "/parkour/vault.jpg",
-    alt: "Speed vault",
-    caption: "Speed vault to step-through into stride.",
+    caption: "Approach, plan, jump.",
   },
 ];
 
